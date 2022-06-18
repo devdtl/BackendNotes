@@ -2,14 +2,15 @@ const express = require("express");
 const app = express();
 const tools = require("./tools.js");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 app.use(express.json());
-
+app.use(cors());
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
-);
-//ruta para llegar a la raiz del proyecto
+);//ruta para llegar a la raiz del proyecto
+
 app.get("/", (request, response) => {
   response.send("Home de backend notes ");
 });
